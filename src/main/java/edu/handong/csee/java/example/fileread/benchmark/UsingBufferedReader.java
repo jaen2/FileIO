@@ -7,17 +7,20 @@ import java.io.*;
  */
 public class UsingBufferedReader {
     public static void main(String[] args) throws IOException {
-
+    	String file1, file2;
 
         //-------------- Test reading 1 MB file. --------------------
-
+    	
+    	file1 = args[0]; //input1MB.txt
+    	file2 = args[1]; //input2MB.txt
+    	
         StopWatch.start();
-
-        BufferedReader inputStream= new BufferedReader(new FileReader(DumpDataWriter.input1MB));
+        
+        BufferedReader inputStream= new BufferedReader(new FileReader(file1));
         while (inputStream.read()!=-1){}
 
         long duration = StopWatch.stop();
-        System.out.println(duration + " milsec");
+        System.out.println("file1's duration is "+duration + " milsec");
         
         inputStream.close();
 
@@ -26,11 +29,11 @@ public class UsingBufferedReader {
 
         StopWatch.start();
 
-        BufferedReader inputStream2= new BufferedReader(new FileReader(DumpDataWriter.input10MB));
+        BufferedReader inputStream2= new BufferedReader(new FileReader(file2));
         while (inputStream2.read()!=-1){}
 
         long duration2 = StopWatch.stop();
-        System.out.println(duration2 + " milsec");
+        System.out.println("file2's duration is "+duration2 + " milsec");
 
         inputStream2.close();
 
